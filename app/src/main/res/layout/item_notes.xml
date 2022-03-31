@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10sp">
+
+    <LinearLayout
+        android:id="@+id/bgNotes"
+        android:orientation="vertical"
+        android:background="@drawable/item_notes_view"
+        android:padding="12sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/titleNotes"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:text="titlerewrewrewrwe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/textNotes"
+            android:layout_marginTop="10sp"
+            android:textSize="16sp"
+            android:textColor="@color/textNotes"
+            android:text="title gdg dsfdsfsdfdsf sdfdsfsdf sdfdsfdsfdsfdsfsd"
+            android:textStyle="normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/dateNotes"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginTop="10sp"
+            android:textColor="@color/white"
+            android:text="2020.10.31"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

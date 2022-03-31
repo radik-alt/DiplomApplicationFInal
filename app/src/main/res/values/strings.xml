@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">DiplomApplication</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">Пора взяться за дела!</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Задачи</string>
+    <string name="menu_gallery">Заметки</string>
+    <string name="menu_slideshow">Таймер</string>
+
+    <style name="setting">Настройки</style>
+
+    <string-array name="Priority">
+        <item>Важно!</item>
+        <item>Средней важности!</item>
+        <item>Не важно!</item>
+    </string-array>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

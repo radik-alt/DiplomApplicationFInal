@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <GridLayout
+        android:padding="15sp"
+        android:columnCount="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/checkTask"
+            android:gravity="top|center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingStart="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/nameTask"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text="Освоить room со связанными таблицами!"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/descriptionTask"
+                android:layout_marginTop="10sp"
+                android:textSize="12sp"
+                android:text="Освоить room со связанными таблицами!"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/dateTask"
+                android:layout_marginTop="10sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_color"
+                android:textSize="12sp"
+                android:text="Вчера 01.01.2020"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+    </GridLayout>
+
+</RelativeLayout>

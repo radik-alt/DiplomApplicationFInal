@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".SplashScreen">
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:paddingEnd="20sp"
+        android:paddingStart="20sp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/ic_launcher_foreground"
+            android:layout_width="150sp"
+            android:layout_height="150sp"/>
+
+        <TextView
+            android:layout_marginTop="20sp"
+            android:textSize="32sp"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textColor="@color/primary_color"
+            android:text="Добро пожаловать!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="10sp"
+            android:textSize="16sp"
+            android:gravity="center_horizontal"
+            android:textStyle="normal"
+            android:textColor="@color/primary_color"
+            android:text="Введите, пожалуйста ваши данные для регистрации в приложении!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:progressBackgroundTintMode="@color/primary_color"
+            android:theme="@style/ProgressBar"
+            android:layout_marginTop="20sp"
+            android:layout_width="50sp"
+            android:layout_height="50sp"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
