@@ -78,4 +78,5 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
 
 
+    implementation 'me.zhanghai.android.materialprogressbar:library:1.6.1'
 }

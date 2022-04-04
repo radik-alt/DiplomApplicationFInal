@@ -21,16 +21,9 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private var fullTask: ArrayList<Task> = ArrayList()
+    private lateinit var taskAdapter: TaskAdapter
+    private var taskList: ArrayList<Task> = ArrayList()
 
-    companion object{
-        private lateinit var taskAdapter: TaskAdapter
-        private var taskList: ArrayList<Task> = ArrayList()
-
-        private fun updateListTask(){
-            taskAdapter.notifyDataSetChanged()
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,19 +35,8 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        adapterSpinner()
-        adapterTask()
-
-        _binding?.createTask?.setOnClickListener {
-            var task = binding.nameTask.text.toString()
-            var description = binding.descriptionTask.text.toString()
-
-            taskList.add(Task(0, task, description, 1,"2020-10-12"))
-            updateListTask()
-        }
-
-        homeViewModel.text.observe(viewLifecycleOwner) {
-
+        binding.addTask.setOnClickListener {
+            bottomSheet()
         }
 
         return root
@@ -73,15 +55,15 @@ class HomeFragment : Fragment() {
     }
 
     private fun adapterSpinner(){
-        var adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(requireContext(), R.array.Priority,
-            android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        binding.priorityTask.adapter = adapter
+//        var adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(requireContext(), R.array.Priority,
+//            android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        binding.priorityTask.adapter = adapter
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun bottomSheet(){
+
     }
+
 }
