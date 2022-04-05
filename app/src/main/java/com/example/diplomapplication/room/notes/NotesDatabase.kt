@@ -1,4 +1,4 @@
-package com.example.diplomapplication.room
+package com.example.diplomapplication.room.notes
 
 import android.content.Context
 import androidx.room.Database
@@ -8,13 +8,13 @@ import androidx.room.RoomDatabase
 @Database(entities = [Notes::class], version = 1, exportSchema = false)
 abstract class NotesDatabase : RoomDatabase(){
 
-    abstract fun myNotesDao():NotesDao
+    abstract fun myNotesDao(): NotesDao
 
     companion object{
         @Volatile
-        var INSTANCE:NotesDatabase ?= null
+        var INSTANCE: NotesDatabase?= null
 
-        fun getDatabaseNotes(context: Context):NotesDatabase{
+        fun getDatabaseNotes(context: Context): NotesDatabase {
             var tempInstance = INSTANCE
             if (tempInstance != null){
                 return tempInstance

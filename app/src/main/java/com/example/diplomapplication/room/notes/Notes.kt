@@ -1,4 +1,4 @@
-package com.example.diplomapplication.room
+package com.example.diplomapplication.room.notes
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -11,5 +11,5 @@ data class Notes(
     val description:String,
     val notes:String,
     val date:String,
-    val priority:String
+    val priority:String,
 )

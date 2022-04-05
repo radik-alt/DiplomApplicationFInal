@@ -1,22 +1,22 @@
-package com.example.diplomapplication.ui.gallery.NotesAdd
+package com.example.diplomapplication.room.notes
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.example.diplomapplication.room.Notes
-import com.example.diplomapplication.room.NotesDatabase
-import com.example.diplomapplication.room.NotesRepository
+import com.example.diplomapplication.room.notes.Notes
+import com.example.diplomapplication.room.notes.NotesDatabase
+import com.example.diplomapplication.room.notes.NotesRepository
 
 class NotesViewModel(application: Application) : AndroidViewModel(application) {
 
-    val repository: NotesRepository
+    private val repository: NotesRepository
 
     init {
         val dao = NotesDatabase.getDatabaseNotes(application).myNotesDao()
         repository = NotesRepository(dao)
     }
 
-    fun addNotes(notes:Notes){
+    fun addNotes(notes: Notes){
         repository.insertNotes(notes)
     }
 

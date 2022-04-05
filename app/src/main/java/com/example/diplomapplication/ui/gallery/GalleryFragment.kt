@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.diplomapplication.R
 import com.example.diplomapplication.databinding.FragmentGalleryBinding
-import com.example.diplomapplication.ui.gallery.NotesAdd.NotesViewModel
+import com.example.diplomapplication.room.notes.NotesViewModel
 import com.example.diplomapplication.ui.gallery.adapterNotes.AdapterNotes
 
 class GalleryFragment : Fragment() {
@@ -72,7 +71,4 @@ class GalleryFragment : Fragment() {
         return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
 }

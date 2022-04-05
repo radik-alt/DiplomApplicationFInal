@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/appendNotesFragment"
-        android:name="com.example.diplomapplication.ui.gallery.NotesAdd.AppendNotesFragment"
+        android:name="com.example.diplomapplication.ui.gallery.AppendNotesFragment"
         android:label="fragment_append_notes"
         tools:layout="@layout/fragment_append_notes" >
         <action

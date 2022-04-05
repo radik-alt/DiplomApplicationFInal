@@ -2,15 +2,12 @@ package com.example.diplomapplication.ui.gallery.adapterNotes
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.diplomapplication.R
 import com.example.diplomapplication.databinding.ItemNotesBinding
-import com.example.diplomapplication.room.Notes
-import com.example.diplomapplication.ui.gallery.GalleryFragment
-import com.example.diplomapplication.ui.gallery.NotesAdd.AppendNotesFragment
+import com.example.diplomapplication.room.notes.Notes
 
 class AdapterNotes(val context:Context, val notes: List<Notes>) : RecyclerView.Adapter<ViewHolderNotes>(){
 
@@ -27,13 +24,13 @@ class AdapterNotes(val context:Context, val notes: List<Notes>) : RecyclerView.A
 
         var bg = holder.bgNotes
         when (data.priority){
-            "MAX" -> {
+            "Max" -> {
                 bg.setBackgroundResource(R.color.max_priority)
             }
-            "MIDDLE" -> {
+            "Middle" -> {
                 bg.setBackgroundResource(R.color.middle_priority)
             }
-            "LOW" -> {
+            "Low" -> {
                 bg.setBackgroundResource(R.color.low_priority)
             }
         }

@@ -1,4 +1,4 @@
-package com.example.diplomapplication.room
+package com.example.diplomapplication.room.notes
 
 import androidx.lifecycle.LiveData
 

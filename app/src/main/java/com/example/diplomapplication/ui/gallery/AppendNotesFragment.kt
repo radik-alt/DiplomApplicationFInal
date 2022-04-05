@@ -1,4 +1,4 @@
-package com.example.diplomapplication.ui.gallery.NotesAdd
+package com.example.diplomapplication.ui.gallery
 
 import android.os.Bundle
 import android.text.format.DateFormat
@@ -12,14 +12,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.diplomapplication.R
 import com.example.diplomapplication.databinding.FragmentAppendNotesBinding
-import com.example.diplomapplication.room.Notes
+import com.example.diplomapplication.room.notes.Notes
+import com.example.diplomapplication.room.notes.NotesViewModel
 import java.util.*
 
 
 class AppendNotesFragment : Fragment() {
 
     private lateinit var binding: FragmentAppendNotesBinding
-    private lateinit var viewModel:NotesViewModel
+    private lateinit var viewModel: NotesViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.diplomapplication.Model.Task
+import com.example.diplomapplication.room.task.Task
 import com.example.diplomapplication.R
+import com.example.diplomapplication.ui.home.Interface.ToDoClickTask
 
-class TaskAdapter(private var context: Context, private var list:ArrayList<Task>) : RecyclerView.Adapter<TaskViewHolder>() {
+class TaskAdapter(private var context: Context, private var list:List<Task>, private var toDoClickTask: ToDoClickTask)
+    : RecyclerView.Adapter<TaskViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val view: View = LayoutInflater.from(context).inflate(R.layout.block_task,
@@ -18,9 +20,11 @@ class TaskAdapter(private var context: Context, private var list:ArrayList<Task>
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        holder.nameTask.text = list[position].name
-        holder.descriptionTask.text = list[position].description
-        holder.time.text = list[position].date
+        holder.nameTask.text = list[position].nameTask
+
+        holder.itemView.setOnClickListener {
+            toDoClickTask.getTask(list[position])
+        }
     }
 
     override fun getItemCount(): Int {

@@ -9,11 +9,10 @@ import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.navArgs
 import com.example.diplomapplication.R
 import com.example.diplomapplication.databinding.FragmentEditNotesBinding
-import com.example.diplomapplication.room.Notes
-import com.example.diplomapplication.ui.gallery.NotesAdd.NotesViewModel
+import com.example.diplomapplication.room.notes.Notes
+import com.example.diplomapplication.room.notes.NotesViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.*
 
