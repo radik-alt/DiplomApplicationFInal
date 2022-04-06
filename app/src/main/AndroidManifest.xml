@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DiplomApplication">
         <activity
-            android:name=".ui.RegistrationActivity"
+            android:name=".ui.account.LogInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.account.RegistrationActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
@@ -25,8 +28,9 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.DiplomApplication.NoActionBar"/>
-        <service android:name=".Service.MyTimer"/>
+            android:theme="@style/Theme.DiplomApplication.NoActionBar" />
+
+        <service android:name=".Service.MyTimer" />
     </application>
 
 </manifest>

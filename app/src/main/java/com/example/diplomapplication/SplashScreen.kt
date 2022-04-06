@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.example.diplomapplication.ui.account.RegistrationActivity
 
 class SplashScreen : AppCompatActivity() {
 
@@ -15,7 +16,8 @@ class SplashScreen : AppCompatActivity() {
         supportActionBar?.hide()
 
         Handler(Looper.myLooper()!!).postDelayed(Runnable {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, RegistrationActivity::class.java))
+            finish()
         }, 3000)
     }
 }

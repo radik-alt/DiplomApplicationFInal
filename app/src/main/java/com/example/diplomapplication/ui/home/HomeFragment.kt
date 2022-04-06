@@ -6,18 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.diplomapplication.room.task.Task
-import com.example.diplomapplication.R
 import com.example.diplomapplication.databinding.FragmentHomeBinding
 import com.example.diplomapplication.room.task.TaskViewModel
 import com.example.diplomapplication.ui.home.Interface.ToDoClickTask
 import com.example.diplomapplication.ui.home.adapter.TaskAdapter
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class HomeFragment : Fragment() {
 
@@ -39,8 +34,8 @@ class HomeFragment : Fragment() {
                 LinearLayoutManager.VERTICAL, false)
             binding.recycleTask.adapter = TaskAdapter(requireContext(), taskList, object : ToDoClickTask{
                 override fun getTask(task: Task) {
-                    Log.d("MyTaskLog", task.toString())
-//                    sharedViewModel.selecteItem(task)
+                    sharedViewModel.selecteItem(task)
+                    Log.d("MyTaskLog", sharedViewModel.getItem().value.toString())
                     bottomSheet()
                 }
             })

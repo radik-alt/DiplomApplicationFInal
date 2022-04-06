@@ -5,58 +5,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <GridLayout
-        android:padding="15sp"
-        android:columnCount="2"
+        android:id="@+id/gridBlockTask"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:padding="15sp">
 
         <RadioButton
             android:id="@+id/checkTask"
-            android:gravity="top|center_horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:gravity="top|center_horizontal" />
 
 
         <LinearLayout
-            android:orientation="vertical"
-            android:paddingStart="10sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="10sp">
 
             <TextView
                 android:id="@+id/nameTask"
-                android:textStyle="normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Освоить room со связанными таблицами!"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:text="Освоить room со связанными таблицами!"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textStyle="normal" />
 
 
             <com.google.android.material.chip.Chip
-                android:layout_marginTop="5sp"
                 android:id="@+id/dateTask"
-                android:text="Сегодня"
-                app:chipIcon="@drawable/ic_calendar"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:text="Сегодня"
+                app:chipIcon="@drawable/ic_calendar" />
 
-<!--            <TextView-->
-<!--                android:padding="10sp"-->
-<!--                android:background="@drawable/item_notes_view"-->
-<!--                android:id="@+id/dateTask"-->
-<!--                android:layout_marginTop="10sp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textColor="@color/primary_color"-->
-<!--                android:textSize="12sp"-->
-<!--                android:text="Сегодня"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"/>-->
+
         </LinearLayout>
 
-
-
-
     </GridLayout>
+
+
 
 </RelativeLayout>

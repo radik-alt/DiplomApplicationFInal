@@ -43,7 +43,6 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            style=""
             android:id="@+id/pauseTimer"
             android:layout_gravity="center"
             android:backgroundTint="@color/primary_color"
