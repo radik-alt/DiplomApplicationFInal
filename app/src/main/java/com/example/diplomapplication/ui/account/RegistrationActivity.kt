@@ -21,9 +21,9 @@ class RegistrationActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         binding.registerAccount.setOnClickListener {
-            if (validUser()){
-                val email = binding.email.text.toString()
-                val password = binding.password.text.toString()
+            val email = binding.email.text.toString()
+            val password = binding.password.text.toString()
+            if (validUser(email, password)){
 
                 auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                     if (it.isSuccessful){
@@ -31,7 +31,7 @@ class RegistrationActivity : AppCompatActivity() {
                         startActivity(mainIntent)
                         finish()
                     } else {
-                        Toast.makeText(this, "${it.exception}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Такого аккаунта нет!", Toast.LENGTH_SHORT).show()
                     }
                 }
 
@@ -45,7 +45,11 @@ class RegistrationActivity : AppCompatActivity() {
         }
     }
 
-    private fun validUser(): Boolean {
+    private fun validUser(email: String, password: String): Boolean {
+        if (email.isNotBlank() && password.isNotBlank()) {
+            Toast.makeText(this, "Не ввели логин или пароль!", Toast.LENGTH_SHORT).show()
+            return false
+        }
         return true
     }
 }

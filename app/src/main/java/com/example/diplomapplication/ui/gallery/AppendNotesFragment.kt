@@ -21,6 +21,7 @@ class AppendNotesFragment : Fragment() {
 
     private lateinit var binding: FragmentAppendNotesBinding
     private lateinit var viewModel: NotesViewModel
+    private var notesPriority = "No Priority"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +31,22 @@ class AppendNotesFragment : Fragment() {
 
         binding.saveNotes.setOnClickListener {
             createNotes(it)
+        }
+
+        binding.clickPrivatePassword.setOnClickListener {
+            binding.passwordNotes.visibility = View.VISIBLE
+        }
+
+        binding.maxNotes.setOnClickListener {
+            notesPriority = "Max"
+        }
+
+        binding.middleNotes.setOnClickListener {
+            notesPriority = "Middle"
+        }
+
+        binding.lowNotes.setOnClickListener {
+            notesPriority = "Low"
         }
 
         return binding.root
@@ -50,7 +67,7 @@ class AppendNotesFragment : Fragment() {
             description = description,
             notes = textNotes,
             date = notesDate,
-            priority = "Max"
+            priority = notesPriority
         )
 
         viewModel.addNotes(notes)
@@ -60,5 +77,7 @@ class AppendNotesFragment : Fragment() {
         Navigation.findNavController(it!!).navigate(R.id.nav_gallery)
 
     }
+
+
 
 }

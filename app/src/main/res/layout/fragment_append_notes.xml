@@ -48,7 +48,26 @@
             android:layout_height="wrap_content">
 
 
-            
+            <ImageView
+                android:id="@+id/maxNotes"
+                android:src="@drawable/max_priority"
+                android:layout_width="25sp"
+                android:layout_height="25sp"/>
+
+            <ImageView
+                android:id="@+id/middleNotes"
+                android:layout_marginLeft="10sp"
+                android:src="@drawable/middle_priority"
+                android:layout_width="25sp"
+                android:layout_height="25sp"/>
+
+            <ImageView
+                android:id="@+id/lowNotes"
+                android:layout_marginLeft="10sp"
+                android:src="@drawable/low_priority"
+                android:layout_width="25sp"
+                android:layout_height="25sp"/>
+
 
         </LinearLayout>
 
@@ -66,6 +85,35 @@
             android:layout_width="match_parent"
             android:layout_height="350sp"/>
 
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/clickPrivatePassword"
+                android:textColor="@color/white"
+                android:text="Сделать приавтной запись"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="50sp"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:visibility="gone"
+                android:id="@+id/passwordNotes"
+                android:hint="Введите пароль (4 цифры):"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="14sp"
+                android:inputType="number"
+                android:maxLength="4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -80,6 +128,8 @@
         android:layout_marginBottom="20sp"
         android:backgroundTint="@color/primary_color"
         android:src="@drawable/ic_baseline_check_24" />
+
+
 
 
 </RelativeLayout>

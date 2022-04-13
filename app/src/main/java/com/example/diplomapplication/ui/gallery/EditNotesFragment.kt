@@ -35,6 +35,10 @@ class EditNotesFragment : Fragment() {
             changeNotes(it)
         }
 
+        binding.clickPrivatePassword.setOnClickListener {
+            binding.passwordNotes.visibility = View.VISIBLE
+        }
+
         return binding.root
     }
 

@@ -1,6 +1,7 @@
 package com.example.diplomapplication.ui.gallery.adapterNotes
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
