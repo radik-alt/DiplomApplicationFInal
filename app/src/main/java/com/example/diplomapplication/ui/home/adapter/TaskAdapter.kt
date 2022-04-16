@@ -29,19 +29,30 @@ class TaskAdapter(private var context: Context, private var currentDate: Date,
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
 
-        var colorState = ColorStateList(arrayOf(
-            intArrayOf(-android.R.attr.state_enabled),
-            intArrayOf(android.R.attr.state_enabled)
-        ), intArrayOf(
-            priorityColor(list[position].priorityTask),
-            Color.WHITE
-        ))
-
-        val dateCreateTask = list[position].dateCreatedTask
-        holder.nameTask.text = list[position].nameTask
-        holder.nameTask.setTextColor(Color.WHITE)
-        holder.dateTask.text = convertDate(dateCreateTask)
-        colorState.also { holder.cheackTask.buttonTintList = it }
+//        var colorState = ColorStateList(arrayOf(
+//            intArrayOf(-android.R.attr.state_enabled),
+//            intArrayOf(android.R.attr.state_enabled)
+//        ), intArrayOf(
+//            priorityColor(list[position].priorityTask),
+//            Color.WHITE
+//        ))
+//
+//        val dateCreateTask = list[position].dateCreatedTask
+////        colorState.also { holder.cheackTask.buttonTintList = it }
+//        val dateNow = Calendar.getInstance().time
+//
+//        val selectedDate = dateNow.day.compareTo(dateCreateTask!!.day)
+//        val selectedMouth = dateNow.month.compareTo(dateCreateTask.month)
+//        if (selectedDate == 0 && selectedMouth == 0){
+//            holder.nameTask.text = list[position].nameTask
+//            holder.nameTask.setTextColor(Color.WHITE)
+//            holder.dateTask.text = convertDate(dateCreateTask)
+//            Log.d("ResultDate", "${list[position]} $selectedDate ${selectedMouth}")
+//        } else if (selectedDate > 0){
+//            Log.d("ResultDate", "${list[position]} $selectedDate ${selectedMouth}")
+//        } else if (selectedDate < 0){
+//            Log.d("ResultDate", "${list[position]} $selectedDate ${selectedMouth}")
+//        }
 
         holder.dateTask.setOnClickListener {
             toDoClickTask.getTask(list[position], 1)

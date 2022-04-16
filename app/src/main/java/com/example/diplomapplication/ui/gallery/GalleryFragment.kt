@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.diplomapplication.R
 import com.example.diplomapplication.databinding.FragmentGalleryBinding
+import com.example.diplomapplication.room.notes.Notes
 import com.example.diplomapplication.room.notes.NotesViewModel
+import com.example.diplomapplication.ui.gallery.Interface.onClikcNotes
 import com.example.diplomapplication.ui.gallery.adapterNotes.AdapterNotes
 
 class GalleryFragment : Fragment() {
@@ -18,6 +21,8 @@ class GalleryFragment : Fragment() {
     private lateinit var _binding: FragmentGalleryBinding
     private val binding get() = _binding
     private lateinit var notesViewModel: NotesViewModel
+    private val sharedNotesModel : SharedViewModelNotes by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,7 +39,12 @@ class GalleryFragment : Fragment() {
             notesViewModel.getNotes().observe(viewLifecycleOwner) { noteList ->
 
                 binding.recycleNotes.layoutManager = GridLayoutManager(requireContext(), 2)
-                binding.recycleNotes.adapter = AdapterNotes(requireContext(), noteList)
+                binding.recycleNotes.adapter = AdapterNotes(requireContext(), noteList, object : onClikcNotes{
+                    override fun getSelectNotes(notes: Notes) {
+                        sharedNotesModel.setNotes(notes)
+                        Navigation.findNavController(it).navigate(R.id.editNotesFragment)
+                    }
+                })
             }
         }
 
@@ -42,7 +52,12 @@ class GalleryFragment : Fragment() {
             notesViewModel.getHighNotes().observe(viewLifecycleOwner) { noteList ->
 
                 binding.recycleNotes.layoutManager = GridLayoutManager(requireContext(), 2)
-                binding.recycleNotes.adapter = AdapterNotes(requireContext(), noteList)
+                binding.recycleNotes.adapter = AdapterNotes(requireContext(), noteList, object : onClikcNotes{
+                    override fun getSelectNotes(notes: Notes) {
+                        sharedNotesModel.setNotes(notes)
+                        Navigation.findNavController(it).navigate(R.id.editNotesFragment)
+                    }
+                })
             }
         }
 
@@ -50,7 +65,13 @@ class GalleryFragment : Fragment() {
             notesViewModel.getMiddleNotes().observe(viewLifecycleOwner) { noteList ->
 
                 binding.recycleNotes.layoutManager = GridLayoutManager(requireContext(), 2)
-                binding.recycleNotes.adapter = AdapterNotes(requireContext(), noteList)
+                binding.recycleNotes.adapter = AdapterNotes(requireContext(), noteList, object : onClikcNotes{
+                    override fun getSelectNotes(notes: Notes) {
+                        sharedNotesModel.setNotes(notes)
+                        Navigation.findNavController(it).navigate(R.id.editNotesFragment)
+
+                    }
+                })
             }
         }
 
@@ -58,14 +79,24 @@ class GalleryFragment : Fragment() {
             notesViewModel.getLowNotes().observe(viewLifecycleOwner) { noteList ->
 
                 binding.recycleNotes.layoutManager = GridLayoutManager(requireContext(), 2)
-                binding.recycleNotes.adapter = AdapterNotes(requireContext(), noteList)
+                binding.recycleNotes.adapter = AdapterNotes(requireContext(), noteList, object : onClikcNotes{
+                    override fun getSelectNotes(notes: Notes) {
+                        sharedNotesModel.setNotes(notes)
+                        Navigation.findNavController(it).navigate(R.id.editNotesFragment)
+                    }
+                })
             }
         }
 
         notesViewModel.getNotes().observe(viewLifecycleOwner) { noteList ->
 
             binding.recycleNotes.layoutManager = GridLayoutManager(requireContext(), 2)
-            binding.recycleNotes.adapter = AdapterNotes(requireContext(), noteList)
+            binding.recycleNotes.adapter = AdapterNotes(requireContext(), noteList, object : onClikcNotes{
+                override fun getSelectNotes(notes: Notes) {
+                    sharedNotesModel.setNotes(notes)
+                    Navigation.findNavController(view!!).navigate(R.id.editNotesFragment)
+                }
+            })
         }
 
         return binding.root

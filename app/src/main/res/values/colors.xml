@@ -16,4 +16,6 @@
     <color name="max_priority">#e1474a</color>
     <color name="middle_priority">#dbdb39</color>
     <color name="low_priority">#39c0a1</color>
+
+    <color name="success">#478E01</color>
 </resources>

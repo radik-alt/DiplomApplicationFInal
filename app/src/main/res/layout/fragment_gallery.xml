@@ -22,11 +22,12 @@
 
         <Button
             android:id="@+id/findMaxNotes"
-            android:layout_marginStart="10sp"
-            android:layout_marginEnd="10sp"
+            android:layout_marginStart="5sp"
+            android:layout_marginEnd="5sp"
             android:textStyle="bold"
             android:textAllCaps="false"
-            android:text="Max"
+            android:text="Работа"
+            android:textSize="12sp"
             android:textColor="@color/max_priority"
             android:backgroundTint="@color/inputApp"
             android:background="@drawable/button_priority"
@@ -35,11 +36,12 @@
 
         <Button
             android:id="@+id/findMiddleNotes"
-            android:layout_marginStart="10sp"
-            android:layout_marginEnd="10sp"
+            android:layout_marginStart="5sp"
+            android:layout_marginEnd="5sp"
             android:textStyle="bold"
             android:textAllCaps="false"
-            android:text="Middle"
+            android:text="Учеба"
+            android:textSize="12sp"
             android:textColor="@color/middle_priority"
             android:backgroundTint="@color/inputApp"
             android:background="@drawable/button_priority"
@@ -48,11 +50,12 @@
 
         <Button
             android:id="@+id/findLowNotes"
-            android:layout_marginStart="10sp"
-            android:layout_marginEnd="10sp"
+            android:layout_marginStart="5sp"
+            android:layout_marginEnd="5sp"
             android:textStyle="bold"
             android:textAllCaps="false"
-            android:text="Low"
+            android:text="Другие"
+            android:textSize="12sp"
             android:textColor="@color/low_priority"
             android:backgroundTint="@color/inputApp"
             android:background="@drawable/button_priority"
@@ -72,13 +75,16 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addNotes"
-        android:layout_margin="20sp"
-        android:backgroundTint="@color/primary_color"
-        android:src="@drawable/ic_baseline_add_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="20sp"
+        android:layout_marginBottom="20sp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_baseline_add_24" />
 
 
 </RelativeLayout>

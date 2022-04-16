@@ -1,6 +1,10 @@
 package com.example.diplomapplication.ui.gallery
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.TextWatcher
 import android.text.format.DateFormat
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -34,7 +38,11 @@ class AppendNotesFragment : Fragment() {
         }
 
         binding.clickPrivatePassword.setOnClickListener {
-            binding.passwordNotes.visibility = View.VISIBLE
+            val showPass = binding.passwordNotes
+            if (showPass.visibility == View.GONE)
+                showPass.visibility = View.VISIBLE
+            else
+                showPass.visibility = View.GONE
         }
 
         binding.maxNotes.setOnClickListener {
@@ -49,7 +57,33 @@ class AppendNotesFragment : Fragment() {
             notesPriority = "Low"
         }
 
+        binding.styleBoldText.setOnClickListener {
+            changeText()
+        }
+
+        binding.styleItalicText.setOnClickListener {
+
+        }
+
         return binding.root
+    }
+
+    private fun changeText() {
+        val textNotes = binding.notes
+        val startSelection= textNotes.selectionStart
+        val endSelection= textNotes.selectionEnd
+
+        val selectedText = textNotes.text.toString().substring(startSelection, endSelection)
+        try {
+            val strTemp = SpannableStringBuilder(selectedText)
+            strTemp.setSpan(android.text.style.StyleSpan(android.graphics.Typeface.BOLD), startSelection, endSelection, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            textNotes.setSelection(startSelection, endSelection)
+            textNotes.text = strTemp
+        } catch (e: Exception){
+            Toast.makeText(requireContext(), "Выделите полностью слово", Toast.LENGTH_SHORT).show()
+        }
+
+        Log.d("ChoosenTextNotes", "$startSelection $endSelection $selectedText")
     }
 
     private fun createNotes(it :View?) {

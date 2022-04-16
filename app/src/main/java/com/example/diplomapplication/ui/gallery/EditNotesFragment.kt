@@ -7,6 +7,7 @@ import android.view.*
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.diplomapplication.R
@@ -22,6 +23,8 @@ class EditNotesFragment : Fragment() {
 //    private val oldNotes by navArgs<>()
     private lateinit var viewModel: NotesViewModel
     private lateinit var binding: FragmentEditNotesBinding
+    private val sharedNotesModel : SharedViewModelNotes by activityViewModels()
+    private lateinit var notes: Notes
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,12 +34,23 @@ class EditNotesFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(NotesViewModel::class.java)
         setHasOptionsMenu(true)
 
+        sharedNotesModel.notes.observe(viewLifecycleOwner){
+            notes = it
+            binding.title.setText(it.title)
+            binding.description.setText(it.description)
+            binding.notes.setText(it.notes)
+        }
+
         binding.saveNotes.setOnClickListener {
             changeNotes(it)
         }
 
         binding.clickPrivatePassword.setOnClickListener {
-            binding.passwordNotes.visibility = View.VISIBLE
+            val showPass = binding.passwordNotes
+            if (showPass.visibility == View.GONE)
+                showPass.visibility = View.VISIBLE
+            else
+                showPass.visibility = View.GONE
         }
 
         return binding.root
@@ -56,19 +70,14 @@ class EditNotesFragment : Fragment() {
         val notesDate = DateFormat.format("MMMM dd yyyy", date.time).toString()
         Log.d("MyTimeData", notesDate)
 
-        var notes = Notes(
-            null,
-            title = title,
-            description = description,
-            notes = textNotes,
-            date = notesDate,
-            priority = "Max"
-        )
+
+        notes.title = title
+        notes.description = description
+        notes.notes = textNotes
 
         viewModel.updateNotes(notes)
 
-        Toast.makeText(requireContext(), "Запись добавлена!", Toast.LENGTH_SHORT).show()
-
+        Toast.makeText(requireContext(), "Запись изменена!", Toast.LENGTH_SHORT).show()
         Navigation.findNavController(it!!).navigate(R.id.nav_gallery)
 
     }
@@ -88,7 +97,9 @@ class EditNotesFragment : Fragment() {
             val deleteNo = bottomsheet.findViewById<Button>(R.id.delete_no)
 
             deleteYes?.setOnClickListener {
-                Toast.makeText(requireContext(), "Ok! Delete Notes!", Toast.LENGTH_SHORT).show()
+                viewModel.deleteNotes(notes.id!!)
+                Toast.makeText(requireContext(), "Запись удалена!", Toast.LENGTH_SHORT).show()
+                Navigation.findNavController(it!!).navigate(R.id.nav_gallery)
             }
 
             deleteNo?.setOnClickListener {

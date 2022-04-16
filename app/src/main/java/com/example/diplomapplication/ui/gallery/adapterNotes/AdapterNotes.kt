@@ -9,8 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.diplomapplication.R
 import com.example.diplomapplication.databinding.ItemNotesBinding
 import com.example.diplomapplication.room.notes.Notes
+import com.example.diplomapplication.ui.gallery.Interface.onClikcNotes
 
-class AdapterNotes(val context:Context, val notes: List<Notes>) : RecyclerView.Adapter<ViewHolderNotes>(){
+class AdapterNotes(val context:Context, val notes: List<Notes>, private var onClickNotes: onClikcNotes) : RecyclerView.Adapter<ViewHolderNotes>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderNotes {
         val view = ItemNotesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -36,8 +37,10 @@ class AdapterNotes(val context:Context, val notes: List<Notes>) : RecyclerView.A
             }
         }
 
+
         holder.itemView.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.editNotesFragment)
+            onClickNotes.getSelectNotes(notes[position])
+//            Navigation.findNavController(it).navigate(R.id.action_nav_gallery_to_passwordFragment)
         }
 
     }

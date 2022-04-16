@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey
 data class Notes(
     @PrimaryKey(autoGenerate = true)
     val id: Long?,
-    val title:String,
-    val description:String,
-    val notes:String,
+    var title:String,
+    var description:String,
+    var notes:String,
     val date:String,
     val priority:String,
 )

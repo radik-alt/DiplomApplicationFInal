@@ -126,10 +126,31 @@
         android:layout_marginTop="20sp"
         android:layout_marginEnd="20sp"
         android:layout_marginBottom="20sp"
-        android:backgroundTint="@color/primary_color"
+        android:backgroundTint="@color/white"
         android:src="@drawable/ic_baseline_check_24" />
 
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <Button
+            android:id="@+id/styleBoldText"
+            android:text="B"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/styleItalicText"
+            android:text="I"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 
 
 </RelativeLayout>
