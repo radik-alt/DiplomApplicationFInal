@@ -8,13 +8,14 @@
         android:id="@+id/gridBlockTask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="2"
+        android:columnCount="3"
         android:padding="15sp">
 
         <RadioButton
             android:id="@+id/checkTask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="false"
             android:gravity="top|center_horizontal" />
 
 
@@ -29,7 +30,7 @@
                 android:id="@+id/nameTask"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Освоить room со связанными таблицами!"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="normal" />
@@ -40,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5sp"
-                android:text="Сегодня"
+                android:text=""
                 app:chipIcon="@drawable/ic_calendar" />
 
 

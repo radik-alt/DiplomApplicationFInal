@@ -1,4 +1,4 @@
-package com.example.diplomapplication.ui.gallery
+package com.example.diplomapplication.ui.NotesUI
 
 import android.os.Bundle
 import android.text.format.DateFormat
@@ -20,9 +20,9 @@ import java.util.*
 
 class EditNotesFragment : Fragment() {
 
-//    private val oldNotes by navArgs<>()
     private lateinit var viewModel: NotesViewModel
     private lateinit var binding: FragmentEditNotesBinding
+    // для передачи модели заметки использовали viewModel
     private val sharedNotesModel : SharedViewModelNotes by activityViewModels()
     private lateinit var notes: Notes
 
@@ -34,6 +34,7 @@ class EditNotesFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(NotesViewModel::class.java)
         setHasOptionsMenu(true)
 
+        // заполнение уже существующей модели данными
         sharedNotesModel.notes.observe(viewLifecycleOwner){
             notes = it
             binding.title.setText(it.title)
@@ -41,10 +42,12 @@ class EditNotesFragment : Fragment() {
             binding.notes.setText(it.notes)
         }
 
+        // сохранение заметки
         binding.saveNotes.setOnClickListener {
             changeNotes(it)
         }
 
+        // открытие поля для ввода пароля по клику на checkbox
         binding.clickPrivatePassword.setOnClickListener {
             val showPass = binding.passwordNotes
             if (showPass.visibility == View.GONE)
@@ -56,37 +59,34 @@ class EditNotesFragment : Fragment() {
         return binding.root
     }
 
-    private fun enterNotes(){
-
-    }
-
+    // изменение заметки
     private fun changeNotes(it:View?){
 
-        var title = binding.title.text.toString()
-        var description = binding.description.text.toString()
-        var textNotes = binding.notes.text.toString()
+        val title = binding.title.text.toString()
+        val description = binding.description.text.toString()
+        val textNotes = binding.notes.text.toString()
 
-        val date = Date()
-        val notesDate = DateFormat.format("MMMM dd yyyy", date.time).toString()
-        Log.d("MyTimeData", notesDate)
-
-
+        // изменения существующей модели
         notes.title = title
         notes.description = description
         notes.notes = textNotes
 
+        // update в БД
         viewModel.updateNotes(notes)
 
         Toast.makeText(requireContext(), "Запись изменена!", Toast.LENGTH_SHORT).show()
-        Navigation.findNavController(it!!).navigate(R.id.nav_gallery)
-
+        // переход назад
+        Navigation.findNavController(requireView()).navigate(R.id.nav_gallery)
     }
 
+    // корзина на Actionbar
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.delete, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    // клик по корзине выводит BottomSheetDialog, по нажатию на yes удаляем запись
+    // по нажатию на no скрывает BottomSheetDialog
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.deleteNotes){
             val bottomsheet = BottomSheetDialog(requireContext())
@@ -99,7 +99,8 @@ class EditNotesFragment : Fragment() {
             deleteYes?.setOnClickListener {
                 viewModel.deleteNotes(notes.id!!)
                 Toast.makeText(requireContext(), "Запись удалена!", Toast.LENGTH_SHORT).show()
-                Navigation.findNavController(it!!).navigate(R.id.nav_gallery)
+                Navigation.findNavController(requireView()).navigate(R.id.nav_gallery)
+                bottomsheet.cancel()
             }
 
             deleteNo?.setOnClickListener {

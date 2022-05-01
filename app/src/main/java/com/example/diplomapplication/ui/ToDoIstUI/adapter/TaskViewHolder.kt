@@ -1,13 +1,10 @@
-package com.example.diplomapplication.ui.home.adapter
+package com.example.diplomapplication.ui.ToDoIstUI.adapter
 
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.diplomapplication.R
-import com.example.diplomapplication.room.task.Task
-import com.example.diplomapplication.ui.home.Interface.OnDeleteTask
-import com.example.diplomapplication.ui.home.Interface.ToDoClickTask
 import com.google.android.material.chip.Chip
 
 class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {

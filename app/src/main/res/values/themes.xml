@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.DiplomApplication" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/bg_color</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/inputApp</item>
+        <item name="colorPrimaryVariant">#B8B6B8</item>
         <item name="colorOnPrimary">@color/bg_color</item>
         <!-- Secondary brand color. -->
         <item name="colorOnSecondary">@color/black</item>
@@ -17,9 +17,6 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="ProgressBar">
-        <item name="colorPrimary">@color/white</item>
-    </style>
 
     <style name="Theme.DiplomApplication.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.DiplomApplication.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

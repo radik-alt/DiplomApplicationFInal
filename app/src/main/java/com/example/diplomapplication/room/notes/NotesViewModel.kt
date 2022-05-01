@@ -30,6 +30,12 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getLowNotes():LiveData<List<Notes>> = repository.getLowNotes()
 
+    fun getCountNotes(): Int = repository.getCountNotes()
+
+    public fun cheack () {
+
+    }
+
     fun deleteNotes(id:Long){
         repository.deleteNotes(id)
     }

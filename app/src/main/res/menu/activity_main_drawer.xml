@@ -7,25 +7,25 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_todoist"
             android:title="@string/menu_home"
             android:checked="true" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_notes"
             android:title="@string/menu_gallery"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/black"
             android:checked="true"/>
 
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_timer"
             android:title="@string/menu_slideshow"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/black"
             android:checked="true"/>
-        <item
-            android:id="@+id/nav_setting"
-            android:icon="@drawable/layout_selector_tran"
-            android:title="@string/action_settings"
-            android:checked="true"/>
+
     </group>
 
 </menu>

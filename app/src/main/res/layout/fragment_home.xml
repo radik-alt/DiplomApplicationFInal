@@ -4,155 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color"
-    tools:context=".ui.home.HomeFragment">
+    android:background="?attr/colorPrimary"
+    tools:context=".ui.ToDoIstUI.HomeFragment">
+
 
     <LinearLayout
-        android:padding="10sp"
-        android:id="@+id/chooseDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-            <ImageButton
-                android:id="@+id/prevDate"
-                android:backgroundTint="@color/bg_color"
-                android:src="@drawable/ic_prev"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/callDataAlert"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:text="Февраль 2021"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
-
-            <ImageButton
-                android:id="@+id/nextDate"
-                android:backgroundTint="@color/bg_color"
-                android:src="@drawable/ic_next"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:paddingTop="10sp"
-        android:paddingBottom="10sp"
-        android:layout_below="@id/chooseDate"
         android:id="@+id/nameIndicatorTask"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20sp">
+
+        <Button
+            android:id="@+id/dateChoosen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Выберите время"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorOnSecondary" />
 
         <TextView
-            android:textSize="16sp"
-            android:textColor="@color/inputApp"
-            android:layout_weight="1"
-            android:text="Пн"
-            android:textAlignment="center"
+            android:id="@+id/nowDateTask"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:textSize="16sp"
-            android:textColor="@color/inputApp"
-            android:layout_weight="1"
-            android:text="Вт"
-            android:textAlignment="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:textSize="16sp"
-            android:textColor="@color/inputApp"
-            android:layout_weight="1"
-            android:text="Ср"
-            android:textAlignment="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:textSize="16sp"
-            android:textColor="@color/inputApp"
-            android:layout_weight="1"
-            android:text="Чт"
-            android:textAlignment="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:textSize="16sp"
-            android:textColor="@color/inputApp"
-            android:layout_weight="1"
-            android:text="Пт"
-            android:textAlignment="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:textSize="16sp"
-            android:textColor="@color/inputApp"
-            android:layout_weight="1"
-            android:text="Сб"
-            android:textAlignment="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:textSize="16sp"
-            android:textColor="@color/inputApp"
-            android:layout_weight="1"
-            android:text="Вс"
-            android:textAlignment="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-<!--        <TextView-->
-<!--            android:text="Все задачи"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"/>-->
-
-<!--        <View-->
-<!--            android:layout_marginTop="10sp"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0.5sp"-->
-<!--            android:background="@color/white" />-->
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:text="Сегодня"
+            android:textColor="?attr/colorOnSecondary"
+            android:textStyle="bold"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
-    <ScrollView
-        android:layout_below="@+id/nameIndicatorTask"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleTask"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameIndicatorTask" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleTask"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addTask"
-        android:layout_margin="20sp"
-        android:backgroundTint="@color/white"
-        android:src="@drawable/ic_baseline_add_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="20sp"
+        android:layout_marginBottom="20sp"
+        android:backgroundTint="?attr/colorPrimary"
+        android:src="@drawable/ic_baseline_add_24" />
 
 
 

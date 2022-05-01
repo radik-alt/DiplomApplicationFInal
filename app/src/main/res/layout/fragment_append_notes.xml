@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color"
-    tools:context=".ui.gallery.AppendNotesFragment">
+    android:background="?attr/colorPrimary"
+    tools:context=".ui.NotesUI.AppendNotesFragment">
 
     <LinearLayout
         android:layout_marginTop="20sp"
@@ -18,7 +18,7 @@
             android:id="@+id/title"
             android:maxLines="1"
             android:padding="15sp"
-            android:hint="Title..."
+            android:hint="Заголовок"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="@color/white"
@@ -32,7 +32,7 @@
             android:maxLines="1"
             android:layout_marginTop="10sp"
             android:padding="15sp"
-            android:hint="Description..."
+            android:hint="Описание"
             android:textSize="18sp"
             android:textStyle="normal"
             android:textColor="@color/white"
@@ -76,7 +76,7 @@
             android:layout_marginTop="10sp"
             android:padding="15sp"
             android:gravity="top"
-            android:hint="Notes..."
+            android:hint="Текст заметки"
             android:textSize="18sp"
             android:textStyle="normal"
             android:textColor="@color/white"
@@ -93,8 +93,8 @@
 
             <CheckBox
                 android:id="@+id/clickPrivatePassword"
-                android:textColor="@color/white"
-                android:text="Сделать приавтной запись"
+                android:textColor="?attr/colorOnSecondary"
+                android:text="Сделать приватной запись"
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="50sp"/>
@@ -103,8 +103,8 @@
                 android:visibility="gone"
                 android:id="@+id/passwordNotes"
                 android:hint="Введите пароль (4 цифры):"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="?attr/colorOnSecondary"
+                android:textColorHint="?attr/colorOnSecondary"
                 android:textSize="14sp"
                 android:inputType="number"
                 android:maxLength="4"
@@ -126,31 +126,9 @@
         android:layout_marginTop="20sp"
         android:layout_marginEnd="20sp"
         android:layout_marginBottom="20sp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="?attr/colorPrimary"
         android:src="@drawable/ic_baseline_check_24" />
 
-    <LinearLayout
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/styleBoldText"
-            android:text="B"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/styleItalicText"
-            android:text="I"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
 
 
 </RelativeLayout>

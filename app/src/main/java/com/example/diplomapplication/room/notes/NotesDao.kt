@@ -24,6 +24,9 @@ interface NotesDao {
     @Query("DELETE FROM Notes WHERE id =:id")
     fun deleteNotes(id:Long)
 
+    @Query("SELECT count(*) FROM Notes")
+    fun getCountNotes() : Int
+
     @Update
     fun updateNotes(notes: Notes)
 }

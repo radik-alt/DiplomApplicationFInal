@@ -4,73 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color"
-    tools:context=".ui.gallery.GalleryFragment">
+    android:background="?attr/colorPrimary"
+    tools:context=".ui.NotesUI.GalleryFragment">
 
     <LinearLayout
-        android:padding="20sp"
         android:id="@+id/priorityLiner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="20sp">
 
         <ImageView
             android:id="@+id/findAllNotes"
-            android:src="@drawable/ic_launcher_foreground"
             android:layout_width="50sp"
-            android:layout_height="50sp"/>
+            android:layout_height="50sp"
+            android:src="@drawable/ic_launcher_foreground" />
 
         <Button
             android:id="@+id/findMaxNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="5sp"
             android:layout_marginEnd="5sp"
-            android:textStyle="bold"
-            android:textAllCaps="false"
-            android:text="Работа"
-            android:textSize="12sp"
-            android:textColor="@color/max_priority"
-            android:backgroundTint="@color/inputApp"
             android:background="@drawable/button_priority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:backgroundTint="@color/inputApp"
+            android:text="Работа"
+            android:textAllCaps="false"
+            android:textColor="@color/max_priority"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/findMiddleNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="5sp"
             android:layout_marginEnd="5sp"
-            android:textStyle="bold"
-            android:textAllCaps="false"
-            android:text="Учеба"
-            android:textSize="12sp"
-            android:textColor="@color/middle_priority"
-            android:backgroundTint="@color/inputApp"
             android:background="@drawable/button_priority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:backgroundTint="@color/inputApp"
+            android:text="Учеба"
+            android:textAllCaps="false"
+            android:textColor="@color/middle_priority"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/findLowNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="5sp"
             android:layout_marginEnd="5sp"
-            android:textStyle="bold"
-            android:textAllCaps="false"
-            android:text="Другие"
-            android:textSize="12sp"
-            android:textColor="@color/low_priority"
-            android:backgroundTint="@color/inputApp"
             android:background="@drawable/button_priority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:backgroundTint="@color/inputApp"
+            android:text="Другие"
+            android:textAllCaps="false"
+            android:textColor="@color/low_priority"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:paddingLeft="10sp"
-        android:paddingRight="10sp"
         android:id="@+id/recycleNotes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/priorityLiner" />
+        android:layout_below="@+id/priorityLiner"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -83,7 +83,7 @@
         android:layout_marginTop="20sp"
         android:layout_marginEnd="20sp"
         android:layout_marginBottom="20sp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="?attr/colorPrimary"
         android:src="@drawable/ic_baseline_add_24" />
 
 

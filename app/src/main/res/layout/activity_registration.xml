@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_color"
-    tools:context=".ui.account.RegistrationActivity">
+    tools:context=".ui.accountUI.RegistrationActivity">
 
     <LinearLayout
         android:layout_centerVertical="true"
@@ -88,6 +88,8 @@
                 android:background="@drawable/input_yes"
                 android:layout_gravity="center_horizontal"
                 android:text="Зарегестрироваться"
+                android:textColor="?attr/colorOnSecondary"
+                android:textStyle="bold"
                 android:layout_marginTop="50sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

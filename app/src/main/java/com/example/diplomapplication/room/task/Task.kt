@@ -16,5 +16,5 @@ data class Task(
     val dateNowTask: Date?,
     @TypeConverters(Convertor::class)
     var dateCreatedTask: Date?,
-    val completed: Boolean
+    val uID: String?
 )

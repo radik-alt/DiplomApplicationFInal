@@ -12,6 +12,7 @@ class NotesRepository(private val notesDao: NotesDao) {
 
     fun getLowNotes():LiveData<List<Notes>> = notesDao.getLowNotes()
 
+    fun getCountNotes():Int = notesDao.getCountNotes()
 
     fun insertNotes(notes: Notes){
         notesDao.createNotes(notes)

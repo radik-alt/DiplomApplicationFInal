@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Notes::class], version = 1, exportSchema = false)
+@Database(entities = [Notes::class], version = 3, exportSchema = false)
 abstract class NotesDatabase : RoomDatabase(){
 
     abstract fun myNotesDao(): NotesDao
@@ -26,6 +26,7 @@ abstract class NotesDatabase : RoomDatabase(){
                     NotesDatabase::class.java,
                     "Notes")
                 .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
                 .build()
 
                 INSTANCE = roomDataBaseInstance

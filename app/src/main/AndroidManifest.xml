@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.diplomapplication">
-
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -11,10 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DiplomApplication">
         <activity
-            android:name=".ui.account.LogInActivity"
+            android:name=".ui.accountUI.LogInActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.account.RegistrationActivity"
+            android:name=".ui.accountUI.RegistrationActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
@@ -31,7 +31,7 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.DiplomApplication.NoActionBar" />
 
-        <service android:name=".Service.MyTimer" />
+        <service android:name=".Service.MyTimeService" />
     </application>
 
 </manifest>

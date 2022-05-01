@@ -12,4 +12,7 @@ data class Notes(
     var notes:String,
     val date:String,
     val priority:String,
+    var IsPassword: Boolean,
+    var password: String?,
+    val uId: String
 )

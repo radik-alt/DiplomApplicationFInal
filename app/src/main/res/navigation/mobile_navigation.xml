@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.diplomapplication.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" >
+        android:name="com.example.diplomapplication.ui.ToDoIstUI.HomeFragment"
+        android:label="Задачи"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_nav_home_to_nav_gallery"
             app:destination="@id/nav_gallery" />
@@ -23,9 +23,9 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.diplomapplication.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" >
+        android:name="com.example.diplomapplication.ui.NotesUI.GalleryFragment"
+        android:label="Заметки"
+        tools:layout="@layout/fragment_gallery">
         <action
             android:id="@+id/action_nav_gallery_to_appendNotesFragment"
             app:destination="@id/appendNotesFragment"
@@ -46,9 +46,9 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.diplomapplication.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" >
+        android:name="com.example.diplomapplication.ui.TimerUI.SlideshowFragment"
+        android:label="Таймер"
+        tools:layout="@layout/fragment_slideshow">
         <action
             android:id="@+id/action_nav_slideshow_to_nav_home"
             app:destination="@id/nav_home" />
@@ -58,9 +58,9 @@
     </fragment>
     <fragment
         android:id="@+id/appendNotesFragment"
-        android:name="com.example.diplomapplication.ui.gallery.AppendNotesFragment"
-        android:label="fragment_append_notes"
-        tools:layout="@layout/fragment_append_notes" >
+        android:name="com.example.diplomapplication.ui.NotesUI.AppendNotesFragment"
+        android:label="Добавление записи"
+        tools:layout="@layout/fragment_append_notes">
         <action
             android:id="@+id/action_appendNotesFragment_to_nav_gallery"
             app:destination="@id/nav_gallery"
@@ -69,23 +69,23 @@
     </fragment>
     <fragment
         android:id="@+id/editNotesFragment"
-        android:name="com.example.diplomapplication.ui.gallery.EditNotesFragment"
-        android:label="fragment_edit_notes"
-        tools:layout="@layout/fragment_edit_notes" >
+        android:name="com.example.diplomapplication.ui.NotesUI.EditNotesFragment"
+        android:label="Изменение записи"
+        tools:layout="@layout/fragment_edit_notes">
         <action
             android:id="@+id/action_editNotesFragment_to_nav_gallery"
             app:destination="@id/nav_gallery" />
     </fragment>
     <fragment
         android:id="@+id/achievementsFragment"
-        android:name="com.example.diplomapplication.ui.home.AchievementsFragment"
-        android:label="fragment_achievements"
+        android:name="com.example.diplomapplication.ui.ToDoIstUI.AchievementsFragment"
+        android:label="Достижения"
         tools:layout="@layout/fragment_achievements" />
     <fragment
         android:id="@+id/passwordFragment"
-        android:name="com.example.diplomapplication.ui.gallery.createPIN.PasswordFragment"
-        android:label="fragment_password"
-        tools:layout="@layout/fragment_password" >
+        android:name="com.example.diplomapplication.ui.NotesUI.createPIN.PasswordFragment"
+        android:label="Проверка"
+        tools:layout="@layout/fragment_password">
         <action
             android:id="@+id/action_passwordFragment_to_nav_gallery"
             app:destination="@id/nav_gallery" />

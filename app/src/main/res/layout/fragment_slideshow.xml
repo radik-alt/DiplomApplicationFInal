@@ -1,106 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/background"
-    android:background="@color/bg_color"
-    tools:context=".ui.slideshow.SlideshowFragment">
+    android:background="?attr/colorPrimary"
+    tools:context=".ui.TimerUI.SlideshowFragment">
 
-    <TextView
-        android:id="@+id/textTimeChoose"
+    <RelativeLayout
+        android:background="?attr/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100sp"
-        android:gravity="center"
-        android:text="@string/timerName"
-        android:textColor="@color/white"
-        android:textSize="24sp" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TimePicker
-            android:visibility="visible"
-            android:id="@+id/timerPickerWork"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:timePickerMode="spinner" />
-
-        <TimePicker
-            android:id="@+id/timerPickerRelax"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:timePickerMode="spinner"
-            android:visibility="gone" />
-
-        <NumberPicker
-            android:id="@+id/quantityTimer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
 
         <TextView
-            android:visibility="gone"
-            android:id="@+id/minutes"
-            android:layout_width="wrap_content"
+            android:id="@+id/textTimeChoose"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="00 : 00"
-            android:textColor="@color/white"
-            android:textSize="@dimen/timeSize" />
+            android:layout_marginTop="50sp"
+            android:gravity="center"
+            android:text="Выберите интерва работы:"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="24sp" />
 
-    </LinearLayout>
+        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+            android:id="@+id/circle_timer"
+            android:layout_width="300sp"
+            android:layout_height="300sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="130sp"
+            android:progress="100"
+            android:max="100"
+            android:visibility="gone"
+            android:progressDrawable="@drawable/circle"
+            android:indeterminateOnly="false" />
+
+        <LinearLayout
+            android:padding="50sp"
+            android:id="@+id/timer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200sp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TimePicker
+                android:id="@+id/timerPickerWork"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner"
+                android:visibility="visible" />
+
+            <TimePicker
+                android:id="@+id/timerPickerRelax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner"
+                android:visibility="gone" />
+
+            <NumberPicker
+                android:id="@+id/quantityTimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/minutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00 : 00"
+                android:textColor="@color/white"
+                android:textSize="@dimen/timeSize"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
 
-    <GridLayout
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100sp"
-        android:columnCount="3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/pauseTimer"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/white"
-            android:layout_columnWeight="1"
-            android:src="@drawable/ic_pause"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            style=""
-            android:id="@+id/startTimer"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/white"
-            android:layout_columnWeight="1"
-            android:src="@drawable/ic_play"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            style=""
-            android:id="@+id/stopTimer"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/white"
-            android:layout_columnWeight="1"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </GridLayout>
+        <GridLayout
+            android:layout_marginTop="50sp"
+            android:id="@+id/buttonTimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/timer"
+            android:columnCount="2"
+            android:padding="25sp">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/startTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:backgroundTint="?attr/colorPrimary"
+                android:src="@drawable/ic_play" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/stopTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:backgroundTint="?attr/colorPrimary"
+            android:src="@drawable/ic_baseline_stop_circle_24"/>
+
+        </GridLayout>
+
+        <LinearLayout
+            android:id="@+id/nameIndicatorTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonTimer"
+            android:padding="20sp">
+
+            <Button
+                android:id="@+id/dateChoosenTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Выберите дату"
+                android:textAllCaps="false"
+                android:textColor="?attr/colorOnSecondary" />
+
+            <Button
+                android:id="@+id/allTiemr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_weight="1"
+                android:text="Выбрать все"
+                android:textAllCaps="false"
+                android:textColor="?attr/colorOnSecondary" />
+
+        </LinearLayout>
 
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/timerRecycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameIndicatorTask" />
 
-</RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>

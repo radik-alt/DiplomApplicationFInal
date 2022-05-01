@@ -2,10 +2,7 @@ package com.example.diplomapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.View
-import android.view.Window
-import com.google.android.material.snackbar.Snackbar
+import android.util.Log
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -14,32 +11,31 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import com.example.diplomapplication.databinding.ActivityMainBinding
-import com.example.diplomapplication.ui.account.RegistrationActivity
+import com.example.diplomapplication.ui.accountUI.RegistrationActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private lateinit var currentUser : FirebaseUser
+    private lateinit var currentUser : String
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         setContentView(binding.root)
 
-
+        // проверка авторриазции пользователя firebase
+        // и получение его UID (уникальный индификатор)
         auth = FirebaseAuth.getInstance()
-        currentUser = auth.currentUser!!
+        currentUser = auth.uid.toString()
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-
+        // DrawLayout, создание выдвигающегося окна с переходами
+        // на таймер, todoist и заметки
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -51,7 +47,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
     }
 
 
@@ -61,10 +56,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onStart() {
-        super.onStart()
-        if (currentUser == null) {
-            val intent = Intent(this, RegistrationActivity::class.java);
-            startActivity(intent);
+        // если Firebase скажет, что пользователя не существует,
+        // то переход на активити регистрации
+        if (currentUser == "null" || currentUser == null){
+            startActivity(Intent(this, RegistrationActivity::class.java))
         }
+        super.onStart()
     }
 }
