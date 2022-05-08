@@ -73,6 +73,7 @@ class SlideshowFragment : Fragment() {
 
     companion object{
         // для сохранения данных минут работы, учебы и повторов
+        private val shared = "SharedTimer"
         private val getWorkMinute = "getWork"
         private val getRelaxMinute = "getRelax"
         private val getCountTime = "getTime"
@@ -139,7 +140,7 @@ class SlideshowFragment : Fragment() {
         }
 
         // сохранения данных для выхода из прил
-        preferences = requireContext().getSharedPreferences(getWorkMinute, Context.MODE_PRIVATE)
+        preferences = requireContext().getSharedPreferences(shared, Context.MODE_PRIVATE)
 
         // установка адаптера
         setAdapter()
@@ -233,17 +234,21 @@ class SlideshowFragment : Fragment() {
             val time = getTime!!.getLongExtra(MyTimeService.TAG, 0L)
             binding.minutes.text = getTimeStringFormat(time)
 
-
             // считываем процент и отображаем его в progressbar
-            if (!Relax){
-                // формула процента от числа
-                val procentProgress =  (time * 100) /(workTimeMinute * (1000 * 60))
-                binding.circleTimer.progress = procentProgress.toInt()
-                Log.d("ProcentProgress", "$procentProgress $time ${workTimeMinute * (1000 * 60)}")
-            } else if (Relax) {
-                val procentProgress =  (time * 100) /(relaxTimerMinute * (1000 * 60))
-                binding.circleTimer.progress = procentProgress.toInt()
+            try {
+                if (!Relax){
+                    // формула процента от числа
+                    val procentProgress =  (time * 100) /(workTimeMinute * (1000 * 60))
+                    binding.circleTimer.progress = procentProgress.toInt()
+                    Log.d("ProcentProgress", "$procentProgress $time ${workTimeMinute * (1000 * 60)}")
+                } else if (Relax) {
+                    val procentProgress =  (time * 100) /(relaxTimerMinute * (1000 * 60))
+                    binding.circleTimer.progress = procentProgress.toInt()
+                }
+            } catch (e: Exception){
+                Toast.makeText(requireContext(), "0 минут!", Toast.LENGTH_SHORT).show()
             }
+
 
             // проверяем время уже равно 0 или нет
             val res = (time / 1000) % 60
@@ -353,9 +358,7 @@ class SlideshowFragment : Fragment() {
 
     // отправка через SharedPreferecne значения
     private fun getShared() {
-        preferences.edit().putLong(getWorkMinute, workTimeMinute)
-        preferences.edit().putLong(getRelaxMinute, relaxTimerMinute)
-        preferences.edit().putInt(getCountTime, quantity)
+
     }
 
 
@@ -436,6 +439,9 @@ class SlideshowFragment : Fragment() {
     }
 
     override fun onPause() {
+        preferences.edit().putLong(getWorkMinute, workTimeMinute).apply()
+        preferences.edit().putLong(getRelaxMinute, relaxTimerMinute).apply()
+        preferences.edit().putInt(getCountTime, quantity).apply()
         sharedViewModel.setOpen(false)
         super.onPause()
     }
@@ -443,7 +449,7 @@ class SlideshowFragment : Fragment() {
     override fun onResume() {
         // получить значения при закрытие приложения с запущенным таймером
         if (sharedViewModel.getIsEdit()){
-            sharedViewModel.setOpen(true)
+//            sharedViewModel.setOpen(true)
             timerPickerWork.visibility = View.GONE
             timerPickerRelax.visibility = View.GONE
             quantityTimer.visibility = View.GONE

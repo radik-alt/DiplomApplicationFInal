@@ -125,7 +125,7 @@ class HomeFragment : Fragment() {
 
         })
         binding.recycleTask.adapter = adapter
-        var itemTouchHelper = ItemTouchHelper(simpleCallback)
+        val itemTouchHelper = ItemTouchHelper(simpleCallback)
         itemTouchHelper.attachToRecyclerView(binding.recycleTask)
     }
 

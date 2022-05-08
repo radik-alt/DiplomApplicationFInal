@@ -86,4 +86,7 @@ dependencies {
     // пароль для заметок
     implementation 'com.hanks:passcodeview:0.1.2'
 
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
 }
