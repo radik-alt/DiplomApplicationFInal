@@ -42,6 +42,7 @@ class HomeFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var preferences: SharedPreferences
 
+
     companion object{
         private val KEY_SHARED = "Shared"
         var changeDate: ArrayList<Task> = ArrayList<Task>()

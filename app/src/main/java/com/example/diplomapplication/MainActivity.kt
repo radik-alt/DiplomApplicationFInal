@@ -3,6 +3,7 @@ package com.example.diplomapplication
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,7 +12,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import com.example.diplomapplication.databinding.ActivityMainBinding
+import com.example.diplomapplication.ui.ToDoIstUI.Interface.ChangeNavigation
 import com.example.diplomapplication.ui.accountUI.RegistrationActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -63,4 +66,6 @@ class MainActivity : AppCompatActivity() {
         }
         super.onStart()
     }
+
+
 }

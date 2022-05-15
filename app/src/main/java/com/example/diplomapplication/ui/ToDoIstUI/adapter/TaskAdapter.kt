@@ -108,7 +108,6 @@ class TaskAdapter(private var context: Context, private var uid: String,
 
     }
 
-
     private fun convertDate(date: Date?): String {
         if (date != null) {
             return DateFormat.format("MMMM dd yyyy", date.time).toString()
