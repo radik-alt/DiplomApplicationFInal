@@ -89,8 +89,8 @@ class LogInActivity : AppCompatActivity() {
 
     private fun validUser(email: String, password:String): Boolean {
         if (email.isBlank() and password.isBlank()) {
-            return true
+            return false
         }
-        return false
+        return true
     }
 }

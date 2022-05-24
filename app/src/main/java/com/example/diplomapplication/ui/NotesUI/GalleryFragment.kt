@@ -139,7 +139,6 @@ class GalleryFragment : Fragment() {
     // сортирует по UID заметки
     private fun changeList(list: List<Notes>): ArrayList<Notes>{
         val newList = ArrayList<Notes>()
-
         for (i in list){
             if (i.uId == uid)
                 newList.add(i)
